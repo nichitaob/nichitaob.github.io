@@ -11,28 +11,44 @@
 </head>
 <body>
 <h1>Privacy policy</h1>
-<p>Last updated: 11 November 2026</p>
+<p>Last updated: 12 November 2026</p>
 
 <p>Lead Finder is a private tool used only by its owner, Nichita (contact: nichitaob@gmail.com).
 It has no other users.</p>
 
 <h2>What Google data it accesses</h2>
 <p>It uses the read-only Gmail permission (<code>gmail.readonly</code>) on the owner's own account only.</p>
-<p>It searches only for notification emails from Facebook, LinkedIn and Google Alerts and downloads only those.
-Other emails are not downloaded.</p>
+<p>This permission technically allows reading the whole mailbox. The program itself limits what it reads: it asks Gmail
+only for notification emails sent by Facebook, LinkedIn and Google Alerts, and downloads only those.</p>
+<p>These are notifications the owner receives about posts he can see, for example in groups he is a member of.
+The program does not check whether a post is public.</p>
 <p>It never sends, deletes or modifies emails.</p>
 
 <h2>How the data is used</h2>
-<p>The notifications are filtered on the owner's computer to find public requests for marketing services.</p>
-<p>Names and contact details are removed or hidden before any further processing.</p>
-<p>A short, cleaned text may be analysed by an AI service (Anthropic Claude) to classify the request.</p>
-<p>A short alert is sent to the owner's own private Telegram bot.</p>
-<p>The data is not sold, not used for advertising and not shared with anyone else.</p>
+<p>On the owner's computer, each notification is filtered: only requests for services (for example "looking for someone
+to build a website") are kept; everything else is discarded without being stored.</p>
+<p>The kept text is cleaned: the author's name, commenters' names and bank or card details are removed.</p>
+<p>The cleaning is automatic and may miss some details.</p>
+
+<h2>Who receives data</h2>
+<p><strong>Anthropic (Claude AI).</strong> Only if the owner turns this on for Gmail, the text is sent to Anthropic to
+classify the request, translate it or draft a reply. Names and contact details are first replaced with placeholders
+such as [AUTHOR] or [PHONE_1].</p>
+<p><strong>Telegram.</strong> The owner receives short alerts in his own private Telegram bot. When he presses a button,
+he also receives the cleaned text, the link to the post and any translation or draft reply, so he can decide himself
+whether to answer.</p>
+<p>Nothing is sent to anyone else. The data is not sold and not used for advertising.</p>
 
 <h2>Storage and retention</h2>
-<p>Data is stored in an encrypted container on the owner's computer.</p>
-<p>Email texts are deleted after 3 days. Alerts are deleted after at most 47 hours.</p>
-<p>The access token is kept in the Windows Credential Manager and can be revoked at any time at
+<p>The data is stored in an encrypted container on the owner's computer.</p>
+<p>Notification texts are deleted from the working database after 3 days. Daily encrypted backups are kept for 30 days;
+when a backup is restored, deletions made after it are applied again.</p>
+<p>Clean-up runs while the program is running; if the computer stays off, it happens when the program starts again.</p>
+<p>Telegram alerts are deleted after about 47 hours. If the owner's computer is off for longer, the deletion happens
+later or is done by hand.</p>
+<p>The original notification emails stay in the owner's Gmail until he deletes them; the program does not delete emails.</p>
+<p>The long-term Gmail authorization (refresh token) is kept in the Windows Credential Manager; the short-term access
+token is kept only in memory. Access can be revoked at any time at
 <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
 
 <h2>Google API Services User Data Policy</h2>
